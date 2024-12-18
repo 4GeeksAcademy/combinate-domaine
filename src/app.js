@@ -9,33 +9,33 @@ window.onload = function() {
   //write your code here
   // console.log("Hello Rigo from the console!");
   const combinateDomaine = (pron, adj, noun) => {
-    let domaines = [];
+    let domainesName = [];
     for (let i = 0; i < pron.length; i++) {
       for (let j = 0; j < adj.length; j++) {
         for (let k = 0; k < noun.length; k++) {
-          domaines.push(`${pron[i]}${adj[j]}${noun[k]}.com`);
+          domainesName.push(`${pron[i]}${adj[j]}${noun[k]}.com`);
         }
       }
     }
-    return domaines;
+    return domainesName;
   };
 
   let pronoun = ["the", "our"];
   let adj = ["great", "big"];
   let noun = ["jogger", "racoon"];
 
-  let result = combinateDomaine(pronoun, adj, noun);
+  let combinateDomaineVariable = combinateDomaine(pronoun, adj, noun);
 
-  let domaine = document.querySelector(".domaine");
+  let divElementDomaine = document.querySelector(".domaine");
 
   let ol = document.createElement("ol");
 
-  for (let r of result) {
+  for (let index of combinateDomaineVariable) {
     let li = document.createElement("li");
 
-    li.innerHTML = r;
+    li.innerHTML = index;
     ol.appendChild(li);
-    domaine.appendChild(ol);
+    divElementDomaine.appendChild(ol);
   }
-  //console.log(result.join("\n"));
+  console.log(combinateDomaineVariable.join("\n"));
 };
